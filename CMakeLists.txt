@@ -3,16 +3,17 @@ cmake_minimum_required(VERSION 3.10)
 project(ui-tools)
 
 file(GLOB source_file
-     "src/*.cc"
-     "src/*.cpp"
+     "src/**/*.cc"
+     "src/**/*.cpp"
 )
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include") 
 # include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include") 
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/pthread")
+# include_directories("${CMAKE_CURRENT_SOURCE_DIR}/lib/pthread")
 
-add_executable(ui-tools ${source_file})
+# add_executable(ui-tools ${source_file})
+add_library(ui-tools SHARED ${source_file})
 target_include_directories(ui-tools PUBLIC
                            "${CMAKE_CURRENT_SOURCE_DIR}/include"
                            )
